@@ -3,8 +3,8 @@
 var mongoose = require('mongoose');
 var db;
 
-if(process.NODE_ENV === 'production'){
-    db = mongoose.connect(process.MONGO_URI);
+if(process.env.NODE_ENV === 'production'){
+    db = mongoose.connect(process.env.MONGO_URI);
     console.log('connected to production database');
 } else {
     db = mongoose.connect('mongodb://localhost/gtfsmin');
