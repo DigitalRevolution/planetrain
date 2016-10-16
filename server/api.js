@@ -1,11 +1,10 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var NODE_ENV;
 var db;
 
-if(NODE_ENV === 'production'){
-    db = mongoose.connect(MONGO_URI);
+if(process.NODE_ENV === 'production'){
+    db = mongoose.connect(process.MONGO_URI);
     console.log('connected to production database');
 } else {
     db = mongoose.connect('mongodb://localhost/gtfsmin');
