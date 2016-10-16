@@ -6,7 +6,7 @@ var db;
 
 if(NODE_ENV === 'production'){
     db = mongoose.connect(MONGO_URI);
-    console.log('connected to production database')
+    console.log('connected to production database');
 } else {
     db = mongoose.connect('mongodb://localhost/gtfsmin');
     console.log('connected to local database')
@@ -25,5 +25,5 @@ if(NODE_ENV === 'production'){
 //var StopTime = db.model('StopTime');
 //var Trip = db.model('Trip');
 
-//mongodb://gtfsapplication:EVL#2d=E!r;h7RFXd:H-R`@ds017070.mlab.com:17070/gtfs
+
 
