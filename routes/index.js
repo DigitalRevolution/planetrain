@@ -3,6 +3,6 @@ var router = express.Router();
 var api = require('../server/api');
 
 /* GET home page. */
-router.get('/', api.test);
+router.get('/', api.buildFullTimeTable);
 
 module.exports = router;
