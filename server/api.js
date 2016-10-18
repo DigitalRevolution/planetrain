@@ -40,7 +40,6 @@ var output = {
 };
 
 module.exports = {
-    test: function(req, res){},
     //** Build the homepage timetable **//
 
     buildFullTimeTable: function(req, res){
@@ -49,11 +48,15 @@ module.exports = {
             return new Promise(function(resolve, reject){
                 StopTime
                     .find({trip_id:trip_id})
-                    .exec(function(err, data){
-                        if(direction == 'east') {
-                            output.east.times.push(data);
+                    .exec(function(err, data){ // each trip has 8 stoptimes
+                        var arr = []; // create a temporary array to hold the stoptimes.arrival_time
+                        for(var i=0; i<data.length; i++){ // loop through stoptime objects
+                            arr.push(data[i].arrival_time) // and add arrival time to the array
+                        }
+                        if(direction == 'east') { // add east to east
+                            output.east.times.push(arr);
                         } else {
-                            output.west.times.push(data);
+                            output.west.times.push(arr); // otherwise it must be west.
                         }
                     });
                 resolve(output);
@@ -63,26 +66,17 @@ module.exports = {
         Trip
             .find({route_id: 'A', service_id:'MT'})
             .exec(function(err, data){
-                data.forEach(function(trip){
+                data.forEach(function(trip){ // for each of the 144 trips
                     if(trip.direction_id === 0){
                         buildArrivalArray('east', trip.trip_id);
                     } else {
                         buildArrivalArray('west', trip.trip_id);
-                        //output.west.tripIds.push(trip.trip_id);
                     }
                 });
+                output.east.times.sort();
+                output.west.times.sort();
                 res.send(output);
 
-                //StopTime
-                //    .find({trip_id: {$in:output.east.tripIds}})
-                //    .exec(function(err, stopTimes){
-                //        stopTimes.forEach(function(time){
-                //            output.east.times.push(time);
-                //        });
-                //
-                //        res.send(output.east.times);
-                //    });
-                //res.send(output.east.time);
             });
     }
 
