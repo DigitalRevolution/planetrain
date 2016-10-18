@@ -1,0 +1,51 @@
+extends layout
+block content
+    div.container
+        h1.text-center= title
+        div.row.eastbound-form.text-center
+            div.col-md-5 FROM:
+                select(name= 'departure_stop', form = 'eastboundForm')
+                    each stop in stopsE
+                        option(value= stop.stop_id)= stop.stop_name
+            div.col-md-5 TO THE AIRPORT ON:
+                select(name= 'travel_date', form = 'eastboundForm')
+                    option(value = 'MT')= 'Monday - Thursday'
+                    option(value = 'FR')= 'Friday'
+                    option(value = 'SA')= 'Saturday'
+                    option(value = 'SU')= 'Sunday / Holiday'
+            div.col-md-2
+                form(id= 'eastboundForm', action='/test', method='post')
+                    input(type= 'hidden' name='direction_id' value='0')
+                    input(type= 'submit' value = 'Let\'s Go!')
+        div.row.westbound-form.text-center
+            div.col-md-6 AIRPORT TO:
+                select(name= 'arrival_stop', form = 'westboundForm')
+                    each stop in stopsW
+                        option(value= stop.stop_id)= stop.stop_name
+            div.col-md-3 ON:
+                select(name= 'travel_date', form = 'westboundForm')
+                    option(value = 'MT')= 'Monday - Thursday'
+                    option(value = 'FR')= 'Friday'
+                    option(value = 'SA')= 'Saturday'
+                    option(value = 'SU')= 'Sunday / Holiday'
+            div.col-md-3
+                form(id= 'westboundForm', action='/test', method='post')
+                    input(type= 'hidden' name='direction_id' value='1')
+                    input(type= 'submit' value = 'Let\'s Go!')
+        div.row.text-center
+            button(onclick='eastBound()') TO THE AIRPORT
+            button(onclick='westBound()') TO THE CITY
+        div.row.text-center
+            table.table.table-striped.main-time-table
+                each name in stopNames
+                    th= name
+                each st in stopTimes
+                    tr
+                        td= st[0]
+                        td= st[1]
+                        td= st[2]
+                        td= st[3]
+                        td= st[4]
+                        td= st[5]
+                        td= st[6]
+                        td= st[7]
