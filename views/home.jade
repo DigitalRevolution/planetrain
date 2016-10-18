@@ -38,7 +38,7 @@ block content
         div.row.text-center
             table.table.table-striped.main-time-table
                 each name in stopNames
-                    th= name
+                    th= name.stop_name
                 each st in stopTimes
                     tr
                         td= st[0]

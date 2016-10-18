@@ -36,9 +36,7 @@ module.exports = {
         var eastName = new Promise(function(resolve, reject){
             api.getStopsByRoute('denverRTD', 'A', 0, function(err, data){
                 if(err) reject(err);
-                data.forEach(function(name){
-                    timeTables.eastNames.push(name.stop_name);
-                });
+                timeTables.eastNames = data;
                 resolve();
             });
         });
@@ -46,9 +44,7 @@ module.exports = {
         var westName = new Promise(function(resolve, reject){
             api.getStopsByRoute('denverRTD', 'A', 1, function(err, data){
                 if(err) reject(err);
-                data.forEach(function(name){
-                    timeTables.westNames.push(name.stop_name);
-                });
+                timeTables.westNames = data;
                 resolve();
             })
         });
