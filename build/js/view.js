@@ -28,7 +28,7 @@ var currentVersion = 1;
 
 function fetchData(cb) {
     var eastPromise = new Promise(function(resolve, reject){
-        fetch('http://planetrain.herokuapp.com/api/tripdata?direction_id=0')
+        fetch('https://planetrain.herokuapp.com/api/tripdata?direction_id=0')
             .then(function (data) {
                 return data.json();
             })
@@ -53,7 +53,7 @@ function fetchData(cb) {
     });
 
     var westPromise = new Promise(function(resolve, reject){
-        fetch('http://planetrain.herokuapp.com/api/tripdata?direction_id=1')
+        fetch('https://planetrain.herokuapp.com/api/tripdata?direction_id=1')
             .then(function (data) {
                 return data.json();
             })
