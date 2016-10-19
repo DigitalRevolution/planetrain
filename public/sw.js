@@ -6,7 +6,7 @@ self.addEventListener('install', function(event){
         'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
         '/javascripts/view.js',
         '/stylesheets/style.css',
-        'http://code.jquery.com/jquery-3.1.1.min.js'
+        'https://code.jquery.com/jquery-3.1.1.min.js'
     ];
 
     event.waitUntil(
