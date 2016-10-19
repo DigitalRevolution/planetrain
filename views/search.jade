@@ -1,0 +1,13 @@
+extends layout
+block content
+    a(href='/')
+        button.btn-block Search Again
+    div.container.text-center
+        h1= title + ' for ' + day
+        table.table.table-striped
+            th.text-center= 'Departing from: ' + pointA
+            th.text-center= 'Arriving at: ' + pointB
+            each t in trips
+                tr
+                    td= t.fromTime
+                    td= t.toTime

@@ -14,7 +14,7 @@ block content
                     option(value = 'SA')= 'Saturday'
                     option(value = 'SU')= 'Sunday / Holiday'
             div.col-md-2
-                form(id= 'eastboundForm', action='/test', method='post')
+                form(id= 'eastboundForm', action='/results', method='post')
                     input(type= 'hidden' name='direction_id' value='0')
                     input(type= 'submit' value = 'Let\'s Go!')
         div.row.westbound-form.text-center
@@ -29,7 +29,7 @@ block content
                     option(value = 'SA')= 'Saturday'
                     option(value = 'SU')= 'Sunday / Holiday'
             div.col-md-3
-                form(id= 'westboundForm', action='/test', method='post')
+                form(id= 'westboundForm', action='/results', method='post')
                     input(type= 'hidden' name='direction_id' value='1')
                     input(type= 'submit' value = 'Let\'s Go!')
         div.row.text-center

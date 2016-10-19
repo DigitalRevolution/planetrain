@@ -30,6 +30,13 @@ var Trip = db.model('Trip');
 
 
 module.exports = {
+
+    // Find the Stop Name //
+    retrieveStopName: function(stop_id, cb){
+        Stop
+            .find({stop_id: stop_id}, cb)
+    },
+
     // Build the homepage timetable //
     buildCompleteTimeTable: function(route_id, service_id, direction_id, cb) {
 
@@ -231,7 +238,7 @@ module.exports = {
 
     // Build Custom TimeTable Based on User Inputs
     buildTimeTable: function(from, to, day, direction, cb) {
-        console.log('buildTimeTable has been called, db.js 96');
+        console.log('buildTimeTable has been called, api 234');
         // fix the 2 track issues
         if (from === '34668' || from === '34667') {
             from = {$gt: '34666', $lt: '34669'};
