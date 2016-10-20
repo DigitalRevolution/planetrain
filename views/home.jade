@@ -1,51 +1,71 @@
 extends layout
 block content
-    div.container
-        h1.text-center= title
-        div.row.eastbound-form.text-center
-            div.col-md-5 FROM:
-                select(name= 'departure_stop', form = 'eastboundForm')
-                    each stop in stopsE
-                        option(value= stop.stop_id)= stop.stop_name
-            div.col-md-5 TO THE AIRPORT ON:
-                select(name= 'travel_date', form = 'eastboundForm')
-                    option(value = 'MT')= 'Monday - Thursday'
-                    option(value = 'FR')= 'Friday'
-                    option(value = 'SA')= 'Saturday'
-                    option(value = 'SU')= 'Sunday / Holiday'
-            div.col-md-2
-                form(id= 'eastboundForm', action='/results', method='post')
-                    input(type= 'hidden' name='direction_id' value='0')
-                    input(type= 'submit' value = 'Let\'s Go!')
-        div.row.westbound-form.text-center
-            div.col-md-6 AIRPORT TO:
-                select(name= 'arrival_stop', form = 'westboundForm')
-                    each stop in stopsW
-                        option(value= stop.stop_id)= stop.stop_name
-            div.col-md-3 ON:
-                select(name= 'travel_date', form = 'westboundForm')
-                    option(value = 'MT')= 'Monday - Thursday'
-                    option(value = 'FR')= 'Friday'
-                    option(value = 'SA')= 'Saturday'
-                    option(value = 'SU')= 'Sunday / Holiday'
-            div.col-md-3
-                form(id= 'westboundForm', action='/results', method='post')
-                    input(type= 'hidden' name='direction_id' value='1')
-                    input(type= 'submit' value = 'Let\'s Go!')
-        div.row.text-center
-            button(onclick='eastBound()') TO THE AIRPORT
-            button(onclick='westBound()') TO THE CITY
-        div.row.text-center
-            table.table.table-striped.main-time-table
-                each name in stopNames
-                    th= name.stop_name
-                each st in stopTimes
-                    tr
-                        td= st[0]
-                        td= st[1]
-                        td= st[2]
-                        td= st[3]
-                        td= st[4]
-                        td= st[5]
-                        td= st[6]
-                        td= st[7]
+    div.row.eastbound-form.text-center
+        div.span4.well
+            h3 I'M GOING FROM FROM:
+            select(name= 'departure_stop', form = 'eastboundForm')
+                each stop in stopsE
+                    option(value= stop.stop_id)= stop.stop_name
+            h3 TO THE AIRPORT ON A:
+            select(name= 'travel_date', form = 'eastboundForm')
+                option(value = 'MT')= 'Monday - Thursday'
+                option(value = 'FR')= 'Friday'
+                option(value = 'SA')= 'Saturday'
+                option(value = 'SU')= 'Sunday'
+                option(value = 'SU')= 'Holiday'
+            form(id= 'eastboundForm', action='/results', method='post')
+                input(type= 'hidden' name='direction_id' value='0')
+                input.btn.btn-success.btn-large(type= 'submit' value = 'LET\'S GO!')
+        div.span8
+            h1.text-center= title
+            p.text-left In 2016, Denver Regional Transportation District (RTD) opened a new railway to facilitate transportation between Union Station and Denver International Airport (DIA). RTD Plane Train is an offline first navigation app which utilizes GTFS data to showcase proficiencies in the following technologies:
+            ul.text-left
+                li Indexed DB
+                li Service Workers
+                li Cache Storage
+                li Promise API
+                li Mongo DB
+                li Express
+    div.row.westbound-form.text-center
+        div.span4.well
+            h3 I'M GOING TO:
+            select(name= 'arrival_stop', form = 'westboundForm')
+                each stop in stopsW
+                    option(value= stop.stop_id)= stop.stop_name
+            h3 FROM THE AIRPORT ON A:
+            select(name= 'travel_date', form = 'westboundForm')
+                option(value = 'MT')= 'Monday - Thursday'
+                option(value = 'FR')= 'Friday'
+                option(value = 'SA')= 'Saturday'
+                option(value = 'SU')= 'Sunday'
+                option(value = 'SU')= 'Holiday'
+            form(id= 'westboundForm', action='/results', method='post')
+                input(type= 'hidden' name='direction_id' value='1')
+                input.btn.btn-success.btn-large(type= 'submit' value = 'LET\'S GO!')
+        div.span8
+            h1.text-center= title
+            p.text-left In 2016, Denver Regional Transportation District (RTD) opened a new railway to facilitate transportation between Union Station and Denver International Airport (DIA). RTD Plane Train is an offline first navigation app which utilizes GTFS data to showcase proficiencies in the following technologies:
+            ul.text-left
+                li Indexed DB
+                li Service Workers
+                li Cache Storage
+                li Promise API
+                li Mongo DB
+                li Express
+    div.row.text-center
+        button.btn.btn-inverse.btn-large.eastbound(onclick='eastBound()') I WANT TO GO TO THE AIRPORT
+        button.btn.btn-inverse.btn-large.westbound(onclick='westBound()') I WANT TO GO TO DENVER
+    div.row.text-center
+        table.table.table-striped.main-time-table
+            each name in stopNames
+                th= name.stop_name
+            each st in stopTimes
+                tr
+                    td= st[0]
+                    td= st[1]
+                    td= st[2]
+                    td= st[3]
+                    td= st[4]
+                    td= st[5]
+                    td= st[6]
+                    td= st[7]

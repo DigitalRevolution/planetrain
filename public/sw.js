@@ -3,10 +3,10 @@
 // Cache static css and js files
 self.addEventListener('install', function(event){
     var urlsToCache = [
-        'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
         '/javascripts/view.js',
         '/stylesheets/style.css',
-        'https://code.jquery.com/jquery-3.1.1.min.js'
+        'https://code.jquery.com/jquery-3.1.1.min.js',
+        'https://bootswatch.com/2/cerulean/bootstrap.min.css'
     ];
 
     event.waitUntil(

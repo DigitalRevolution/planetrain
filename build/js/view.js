@@ -210,12 +210,16 @@ function buildTheHeader(input){
 function eastBound(){
     buildTheHeader('eastNames');
     retreiveTimes('eastTimes');
+    $('button.eastbound').css('display','none');
+    $('button.westbound').css('display', 'block');
     $('.westbound-form').css('display','none');
     $('.eastbound-form').css('display', 'block');
 }
 function westBound(){
     buildTheHeader('westNames');
     retreiveTimes('westTimes');
+    $('button.eastbound').css('display','block');
+    $('button.westbound').css('display', 'none');
     $('.westbound-form').css('display','block');
     $('.eastbound-form').css('display', 'none');
 }

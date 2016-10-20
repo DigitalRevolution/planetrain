@@ -67,11 +67,11 @@ module.exports = {
                     stopsE: timeTables.eastNames,
                     stopTimes: timeTables.eastTimes,
                     stopNames: timeTables.eastNames,
-                    title: 'Plane Train, Baby!'
+                    title: 'RTD PLANE TRAIN'
                 });
                 //res.send(timeTables);
             }).catch(function(err){
-                console.log('OH SHIT!: ', err);
+                console.log('OH NO!: ', err);
             })
     },
 

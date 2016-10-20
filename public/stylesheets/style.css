@@ -1,6 +1,6 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 }
 
 a {
@@ -9,4 +9,22 @@ a {
 
 div.westbound-form{
     display: none;
+}
+
+button.eastbound,
+button.westbound {
+    margin: 5px auto 25px;
+}
+
+button.eastbound {
+    display: none;
+}
+
+.table td, .table th {
+    text-align: center;
+}
+
+table {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
 }
