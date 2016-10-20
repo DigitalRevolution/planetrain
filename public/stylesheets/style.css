@@ -28,3 +28,7 @@ table {
     border: 1px solid #e3e3e3;
     border-radius: 4px;
 }
+
+.span8 {
+    max-width: 620px;
+}
