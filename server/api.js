@@ -27,8 +27,6 @@ var Stop = db.model('Stop');
 var StopTime = db.model('StopTime');
 var Trip = db.model('Trip');
 
-
-
 module.exports = {
 
     // Find the Stop Name //
