@@ -3,6 +3,7 @@
 // Cache static css and js files
 self.addEventListener('install', function(event){
     var urlsToCache = [
+        '/',
         '/javascripts/view.js',
         '/stylesheets/style.css',
         'https://code.jquery.com/jquery-3.1.1.min.js',
