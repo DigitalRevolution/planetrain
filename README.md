@@ -2,7 +2,7 @@
 Project #2 - GTFS Offline First Transit App
 
 # installation
-This project is currently in production at https://plantrain.herokuapp.com 
+This project is currently in production at https://planetrain.herokuapp.com 
 
 To install the project in a local environment, clone this repo and mongoresore the database backup at /server/gtfsmin 
 
