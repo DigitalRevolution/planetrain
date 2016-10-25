@@ -37,6 +37,16 @@ For more information about using mongodump to backup and migrate mongodb databas
 
 For more information about mongorestore, see: https://docs.mongodb.com/manual/reference/program/mongorestore/
 
+If no default port is set in your environment, this app will run on 3333 by default. 
+
+To run the build process: 
+
+`gulp`
+
+To launch the app: 
+
+`npm start`
+
 ## API Reference
 
 This project includes two public API endpoints. These endpoints each return JSON objects which include stopnames and a multidimensional arrays of stoptimes for individual trips. 
